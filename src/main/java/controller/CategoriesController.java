@@ -38,7 +38,7 @@ public class CategoriesController implements Serializable {
 
     public String editCategory(Category category) {
         this.category = category;
-        return "/category.xhtml?faces-redirect=true";
+        return "/category.xhtml";
     }
 
 
@@ -53,7 +53,7 @@ public class CategoriesController implements Serializable {
 
     public String createCategory() {
         this.category = new Category();
-        return "/category.xhtml?faces-redirect=true";
+        return "/category.xhtml";
     }
 
 
