@@ -38,7 +38,7 @@ public class CategoriesController implements Serializable {
 
     public String editCategory(Category category) {
         this.category = category;
-        return "/category.xhtml";
+        return "/category.xhtml?faces-redirect=true";
     }
 
 
@@ -47,17 +47,17 @@ public class CategoriesController implements Serializable {
     }
 
     public String saveCategory() throws SQLException {
-        if(category.getiD() == null) {
-            categoryDAO.save(category);
+        if(this.category.getiD() == null) {
+            categoryDAO.save(this.category);
         } else {
-            categoryDAO.update(category);
+            categoryDAO.update(this.category);
         }
         return "/categories.xhtml?faces-redirect=true";
     }
 
     public String createCategory() {
         this.category = new Category();
-        return "/category.xhtml";
+        return "/category.xhtml?faces-redirect=true";
     }
 
 

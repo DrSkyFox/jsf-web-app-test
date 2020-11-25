@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 
 public class Category {
 
-    private Long iD;
+    private Long id;
 
 
     @NotNull(message = "Field cant empty")
@@ -18,8 +18,8 @@ public class Category {
 
     private Boolean status;
 
-    public Category(Long iD, String nameCat, Boolean status) {
-        this.iD = iD;
+    public Category(Long id, String nameCat, Boolean status) {
+        this.id = id;
         this.nameCat = nameCat;
         this.status = status;
     }
@@ -28,11 +28,11 @@ public class Category {
     }
 
     public Long getiD() {
-        return iD;
+        return id;
     }
 
     public void setiD(Long iD) {
-        this.iD = iD;
+        this.id = id;
     }
 
     public String getNameCat() {

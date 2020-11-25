@@ -31,16 +31,16 @@
         <div class="row py-2">
             <div class="col-12">
                 <h:form>
-                    <input type="hidden" value="iD" id = "iD" />
+                    <input type="hidden" value="id" id = "id" />
                     <div class="form-group">
                         <label>Name Category</label>
                         <h:outputLabel value="Named"/>
                         <h:inputText styleClass="form-control" id="nameCat"
                                      value="#{categoriesController.category.nameCat}"
-                                     placeholder="Enter description" validatorMessage="Значение не должно быть пустым"/>
+                                     placeholder="Enter description" validatorMessage="Значение не должно быть пустым">
+                            <f:validateRequired />
+                        </h:inputText>
                     </div>
-                    <f:validateRequired />
-                    <f:param name="iD" value="#{categoriesController.category.iD}"/>
                     <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{categoriesController.saveCategory()}"/>
                 </h:form>
             </div>
