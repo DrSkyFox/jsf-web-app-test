@@ -31,7 +31,7 @@
         <div class="row py-2">
             <div class="col-12">
                 <h:form>
-                    <input type="hidden" id="iD" name="iD"/>
+                    <input type="hidden" value="iD" id = "iD" />
                     <div class="form-group">
                         <label>Name Category</label>
                         <h:outputLabel value="Named"/>
@@ -39,8 +39,8 @@
                                      value="#{categoriesController.category.nameCat}"
                                      placeholder="Enter description" validatorMessage="Значение не должно быть пустым"/>
                     </div>
-
-                    <input type="hidden" id="status" name="status"/>
+                    <f:validateRequired />
+                    <f:param name="iD" value="#{categoriesController.category.iD}"/>
                     <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{categoriesController.saveCategory()}"/>
                 </h:form>
             </div>
