@@ -1,8 +1,19 @@
 package persists;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Named
+@RequestScoped
 public class Category {
 
     private int iD;
+
+
+    @NotNull(message = "Поле не должно быть пустым")
+    @Size(min = 3, max = 32, message = "Поле должно содержать от 3 до 32 символов")
     private String nameCat;
     private int status;
 

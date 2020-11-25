@@ -24,9 +24,9 @@
   </servlet-mapping>
 
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.xhtml</welcome-file>
+<!--    <welcome-file>index.jsp</welcome-file>-->
+<!--    <welcome-file>index.html</welcome-file>-->
+    <welcome-file>categories.xhtml</welcome-file>
   </welcome-file-list>
 
   <context-param>
@@ -42,6 +42,11 @@
   <context-param>
     <param-name>password</param-name>
     <param-value>root</param-value>
+  </context-param>
+
+  <context-param>	 <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL
+  </param-name>
+    <param-value>true</param-value>
   </context-param>
 
 </web-app>

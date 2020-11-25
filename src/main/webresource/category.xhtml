@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <html lang="en"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
@@ -37,13 +37,16 @@
                         <h:outputLabel value="Named"/>
                         <h:inputText styleClass="form-control" id="name"
                                      value="#{categoriesController.category.nameCat}"
-                                     placeholder="Enter description"/>
+                                     placeholder="Enter description" validatorMessage="Значение не должно быть пустым"/>
+                    
                     </div>
                     <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{todoController.saveTodo()}"/>
                 </h:form>
             </div>
         </div>
     </div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
