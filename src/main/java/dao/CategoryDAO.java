@@ -37,9 +37,9 @@ public class CategoryDAO implements Dao<Category>{
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()) {
-                return new Category(rs.getInt(1), rs.getString(2), rs.getInt(3));
+                return new Category(rs.getLong(1), rs.getString(2), rs.getBoolean(3));
             }
-            return new Category(-1, "", 0);
+            return new Category((long) 0, "", false);
         }
 
     }
@@ -50,7 +50,7 @@ public class CategoryDAO implements Dao<Category>{
         try(PreparedStatement preparedStatement = connection.prepareStatement("select * from categories where enabled = 1")) {
             ResultSet resultSet  = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                categories.add(new Category(resultSet.getInt(1), resultSet.getString(2), 1));
+                categories.add(new Category(resultSet.getLong(1), resultSet.getString(2), true));
             }
         } catch (SQLException e) {
             logger.info(e.getMessage());
@@ -69,15 +69,16 @@ public class CategoryDAO implements Dao<Category>{
     @Override
     public void update(Category category) throws SQLException {
         try(PreparedStatement preparedStatement = connection.prepareStatement("update categories set nameCategory = ? where id = ?")){
+            logger.debug(category.getNameCat());
             preparedStatement.setString(1,category.getNameCat());
-            preparedStatement.setInt(2,category.getiD());
+            preparedStatement.setLong(2,category.getiD());
         }
     }
 
     @Override
     public void delete(Category category) throws SQLException {
         try(PreparedStatement preparedStatement = connection.prepareStatement("update categories set enabled = 0 where id = ?")) {
-            preparedStatement.setInt(1,category.getiD());
+            preparedStatement.setLong(1,category.getiD());
             preparedStatement.execute();
         }
     }

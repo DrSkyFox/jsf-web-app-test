@@ -5,15 +5,14 @@ import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Named
-@RequestScoped
+
 public class Category {
 
     private Long iD;
 
 
-    @NotNull(message = "Поле не должно быть пустым")
-    @Size(min = 3, max = 32, message = "Поле должно содержать от 3 до 32 символов")
+    @NotNull(message = "Field cant empty")
+    @Size(min = 3, max = 32, message = "Fileds wolrd must in 3 to 32 symbols")
     private String nameCat;
 
 

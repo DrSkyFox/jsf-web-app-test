@@ -52,8 +52,7 @@ public class CategoriesController implements Serializable {
         } else {
             categoryDAO.update(category);
         }
-
-        return "/index.xhtml?faces-redirect=true";
+        return "/categories.xhtml?faces-redirect=true";
     }
 
     public String createCategory() {

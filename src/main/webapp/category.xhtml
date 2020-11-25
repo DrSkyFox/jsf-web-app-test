@@ -5,13 +5,13 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:include src="head.xhtml">
-    <ui:param name="title" value="ToDo Edit"/>
+    <ui:param name="title" value="Category Edit"/>
 </ui:include>
 
 <h:body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">ToDo</a>
+        <a class="navbar-brand" href="categories.xhtml">Category</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,15 +31,16 @@
         <div class="row py-2">
             <div class="col-12">
                 <h:form>
-                    <input type="hidden" id="id" name="id"/>
+                    <input type="hidden" id="iD" name="iD"/>
                     <div class="form-group">
                         <label>Name Category</label>
                         <h:outputLabel value="Named"/>
                         <h:inputText styleClass="form-control" id="nameCat"
                                      value="#{categoriesController.category.nameCat}"
                                      placeholder="Enter description" validatorMessage="Значение не должно быть пустым"/>
-                    
                     </div>
+
+                    <input type="hidden" id="enabled" name="enabled"/>
                     <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{categoriesController.saveCategory()}"/>
                 </h:form>
             </div>
