@@ -35,12 +35,12 @@
                     <div class="form-group">
                         <label>Name Category</label>
                         <h:outputLabel value="Named"/>
-                        <h:inputText styleClass="form-control" id="name"
+                        <h:inputText styleClass="form-control" id="nameCat"
                                      value="#{categoriesController.category.nameCat}"
                                      placeholder="Enter description" validatorMessage="Значение не должно быть пустым"/>
                     
                     </div>
-                    <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{todoController.saveTodo()}"/>
+                    <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{categoriesController.saveCategory()}"/>
                 </h:form>
             </div>
         </div>

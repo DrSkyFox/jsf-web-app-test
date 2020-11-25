@@ -1,6 +1,8 @@
 package dao;
 
 import jdk.jfr.Name;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import persists.Category;
 
 import javax.annotation.PostConstruct;
@@ -15,6 +17,8 @@ import java.util.List;
 @Named
 @ApplicationScoped
 public class CategoryDAO implements Dao<Category>{
+
+    Logger logger  = LoggerFactory.getLogger(CategoryDAO.class);
 
     @Inject
     private ServletContext context;
@@ -43,18 +47,20 @@ public class CategoryDAO implements Dao<Category>{
     @Override
     public List<Category> getAll() throws SQLException {
         List<Category> categories = new ArrayList<>();
-        try(PreparedStatement preparedStatement = connection.prepareStatement("select * fromcategories where enabled = 1")) {
+        try(PreparedStatement preparedStatement = connection.prepareStatement("select * from categories where enabled = 1")) {
             ResultSet resultSet  = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 categories.add(new Category(resultSet.getInt(1), resultSet.getString(2), 1));
             }
+        } catch (SQLException e) {
+            logger.info(e.getMessage());
         }
         return categories;
     }
 
     @Override
     public void save(Category category) throws SQLException {
-        try(PreparedStatement preparedStatement = connection.prepareStatement("insert into categories(nameCattegory) values (?)")) {
+        try(PreparedStatement preparedStatement = connection.prepareStatement("insert into categories(nameCategory) values (?)")) {
             preparedStatement.setString(1, category.getNameCat());
             preparedStatement.execute();
         }
@@ -62,7 +68,7 @@ public class CategoryDAO implements Dao<Category>{
 
     @Override
     public void update(Category category) throws SQLException {
-        try(PreparedStatement preparedStatement = connection.prepareStatement("update categories set nameCattegory = ? where id = ?")){
+        try(PreparedStatement preparedStatement = connection.prepareStatement("update categories set nameCategory = ? where id = ?")){
             preparedStatement.setString(1,category.getNameCat());
             preparedStatement.setInt(2,category.getiD());
         }
@@ -76,13 +82,5 @@ public class CategoryDAO implements Dao<Category>{
         }
     }
 
-    private void createTableIfNotExists(Connection conn) throws SQLException {
-        try (Statement stmt = conn.createStatement()) {
-            stmt.execute("create table if not exists categories (\n" +
-                    "\tid int auto_increment primary key,\n" +
-                    "    nameCattegory varchar(25),\n" +
-                    "    enabled tinyint default 1,\n" +
-                    ");");
-        }
-    }
+
 }

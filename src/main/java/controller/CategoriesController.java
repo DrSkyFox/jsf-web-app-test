@@ -46,8 +46,13 @@ public class CategoriesController implements Serializable {
         categoryDAO.delete(category);
     }
 
-    public String saveCategory(Category category) throws SQLException {
-        categoryDAO.save(category);
+    public String saveCategory() throws SQLException {
+        if(category.getiD() == null) {
+            categoryDAO.save(category);
+        } else {
+            categoryDAO.update(category);
+        }
+
         return "/index.xhtml?faces-redirect=true";
     }
 

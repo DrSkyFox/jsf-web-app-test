@@ -9,28 +9,30 @@ import javax.validation.constraints.Size;
 @RequestScoped
 public class Category {
 
-    private int iD;
+    private Long iD;
 
 
     @NotNull(message = "Поле не должно быть пустым")
     @Size(min = 3, max = 32, message = "Поле должно содержать от 3 до 32 символов")
     private String nameCat;
-    private int status;
 
-    public Category(int iD, String name, int status) {
+
+    private Boolean status;
+
+    public Category(Long iD, String nameCat, Boolean status) {
         this.iD = iD;
-        this.nameCat = name;
+        this.nameCat = nameCat;
         this.status = status;
     }
 
     public Category() {
     }
 
-    public int getiD() {
+    public Long getiD() {
         return iD;
     }
 
-    public void setiD(int iD) {
+    public void setiD(Long iD) {
         this.iD = iD;
     }
 
@@ -42,11 +44,11 @@ public class Category {
         this.nameCat = nameCat;
     }
 
-    public int getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 }
