@@ -1,14 +1,12 @@
 package persists;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
 public class Category {
 
-    private Long id;
+    private Integer id;
 
 
     @NotNull(message = "Field cant empty")
@@ -18,7 +16,7 @@ public class Category {
 
     private Boolean status;
 
-    public Category(Long id, String nameCat, Boolean status) {
+    public Category(Integer id, String nameCat, Boolean status) {
         this.id = id;
         this.nameCat = nameCat;
         this.status = status;
@@ -27,11 +25,11 @@ public class Category {
     public Category() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

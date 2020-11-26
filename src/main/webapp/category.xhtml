@@ -31,14 +31,15 @@
         <div class="row py-2">
             <div class="col-12">
                 <h:form>
-                    <input type="hidden" value="id" id = "id" />
+                    <h:inputHidden id = "id" value="#{categoriesController.category.id}" />
+<!--                    <input type="hidden" value="id" id = "id" />-->
                     <div class="form-group">
-                        <label>Name Category</label>
+<!--                        <label>Name Category</label>-->
                         <h:outputLabel value="Named"/>
                         <h:inputText styleClass="form-control" id="nameCat"
                                      value="#{categoriesController.category.nameCat}"
-                                     placeholder="Enter description" validatorMessage="Значение не должно быть пустым">
-                            <f:validateRequired />
+                                     placeholder="Enter description">
+<!--                            <f:validateRequired />-->
                         </h:inputText>
                     </div>
                     <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{categoriesController.saveCategory()}"/>

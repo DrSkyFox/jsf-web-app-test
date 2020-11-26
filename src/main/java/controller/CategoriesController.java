@@ -47,10 +47,10 @@ public class CategoriesController implements Serializable {
     }
 
     public String saveCategory() throws SQLException {
-        if(this.category.getiD() == null) {
-            categoryDAO.save(this.category);
+        if(category.getId() == null) {
+            categoryDAO.save(category);
         } else {
-            categoryDAO.update(this.category);
+            categoryDAO.update(category);
         }
         return "/categories.xhtml?faces-redirect=true";
     }
