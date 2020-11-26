@@ -2,40 +2,50 @@ package persists;
 
 public class Order {
 
-    private int id;
-    private String name;
-    private int customerID;
+    private Integer id;
+    private String description;
+    private Integer customerID;
+    private Boolean status;
 
-    public Order(int id, String name, int customerID) {
+    public Order(int id, String name, int customerID, boolean status) {
         this.id = id;
-        this.name = name;
+        this.description = name;
         this.customerID = customerID;
+        this.status = status;
     }
 
     public Order() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public int getCustomerID() {
+    public Integer getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(Integer customerID) {
         this.customerID = customerID;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

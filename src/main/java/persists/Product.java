@@ -2,30 +2,31 @@ package persists;
 
 public class Product {
 
-    private int iD;
+    private Integer id;
     private String name;
-    private float price;
+    private Float price;
     private String description;
+    private Boolean status;
 
 
-    public Product(int iD, String name, float price, String description) {
-        this.iD = iD;
+    public Product(Integer id, String name, Float price, String description, Boolean status) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
+        this.status = status;
     }
-
 
     public Product() {
     }
 
 
-    public int getiD() {
-        return iD;
+    public Integer getId() {
+        return id;
     }
 
-    public void setiD(int iD) {
-        this.iD = iD;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -36,11 +37,11 @@ public class Product {
         this.name = name;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
