@@ -44,4 +44,13 @@
     <param-value>root</param-value>
   </context-param>
 
+  <session-config>
+    <session-timeout>45</session-timeout>
+  </session-config>
+
+  <error-page>
+    <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+    <location>/sessionexpired.xhtml</location>
+  </error-page>
+
 </web-app>
