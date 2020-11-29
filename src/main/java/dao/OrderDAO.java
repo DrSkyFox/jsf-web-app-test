@@ -74,7 +74,7 @@ public class OrderDAO implements Dao<Order> {
 
     @Override
     public void update(Order order) throws SQLException {
-        try(PreparedStatement preparedStatement = connection.prepareStatement("update orders set descrition = ?, customer_id = ? where id = ?")){
+        try(PreparedStatement preparedStatement = connection.prepareStatement("update orders set description = ?, customer_id = ? where id = ?")){
 
             preparedStatement.setString(1,order.getDescription());
             preparedStatement.setInt(2, order.getCustomerID());

@@ -32,22 +32,21 @@
             <div class="col-12">
                 <h:form>
                     <div class="form-group">
-                    <label>ID Product</label>
                     <h:outputLabel value="id"/>
                     <h:outputText styleClass="form-control" id="id"
-                                  value="#{productController.product.id}" >
+                                  value="#{productController.product.id != null ? productController.product.id : ''}" >
                     </h:outputText>
+                    </div>
                     <!--                    <input type="hidden" value="id" id = "id" />-->
                     <div class="form-group">
-                    <label>Name</label>
                     <h:outputLabel value="name"/>
                     <h:inputText styleClass="form-control" id="name"
                                  value="#{productController.product.name}"
                                  placeholder="Enter name">
                         <f:validateRequired />
                     </h:inputText>
+                    </div>
                     <div class="form-group">
-                        <label>Price</label>
                         <h:outputLabel value="price"/>
                         <h:inputText styleClass="form-control" id="price"
                                      value="#{productController.product.price}"
@@ -56,14 +55,13 @@
                         </h:inputText>
                     </div>
                     <div class="form-group">
-                        <label>Price</label>
                         <h:outputLabel value="desciption"/>
                         <h:inputText styleClass="form-control" id="description"
                                      value="#{productController.product.description}"
                                      placeholder="Enter price">
                         </h:inputText>
                     </div>
-                    <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{orderController.saveOrder()}"/>
+                    <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{productController.saveProduct()}"/>
                 </h:form>
             </div>
         </div>

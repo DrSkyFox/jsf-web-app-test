@@ -32,22 +32,22 @@
             <div class="col-12">
                 <h:form>
                     <div class="form-group">
-                    <label>ID Order</label>
                     <h:outputLabel value="id"/>
                     <h:outputText styleClass="form-control" id="id"
                                  value="#{orderController.order.id}" >
                     </h:outputText>
 <!--                    <input type="hidden" value="id" id = "id" />-->
+                    </div>
                     <div class="form-group">
-                        <label>Cutromer</label>
+
                         <h:outputLabel value="customerID"/>
                         <h:inputText styleClass="form-control" id="customerID"
                                      value="#{orderController.order.customerID}"
                                      placeholder="Enter customer ID">
                             <f:validateRequired />
                         </h:inputText>
+                    </div>
                     <div class="form-group">
-                        <label>Description</label>
                         <h:outputLabel value="description"/>
                         <h:inputText styleClass="form-control" id="description"
                                      value="#{orderController.order.description}"
