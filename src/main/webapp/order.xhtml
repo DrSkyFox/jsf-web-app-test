@@ -34,12 +34,12 @@
                     <h:inputHidden id = "id" value="#{categoriesController.category.id}" />
 <!--                    <input type="hidden" value="id" id = "id" />-->
                     <div class="form-group">
-<!--                        <label>Name Category</label>-->
+                        <label>Name Category</label>
                         <h:outputLabel value="Named"/>
                         <h:inputText styleClass="form-control" id="nameCat"
                                      value="#{categoriesController.category.nameCat}"
                                      placeholder="Enter description">
-<!--                            <f:validateRequired />-->
+                            <f:validateRequired />
                         </h:inputText>
                     </div>
                     <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{categoriesController.saveCategory()}"/>
