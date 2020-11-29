@@ -21,9 +21,10 @@
                         <h:outputLabel value="Named"/>
                         <h:inputText styleClass="form-control" id="nameCat"
                                      value="#{categoriesController.category.nameCat}"
-                                     placeholder="Enter description">
+                                     placeholder="Enter description" validatorMessage="Fields must not empty">
                             <f:validateRequired />
                         </h:inputText>
+                        <h:message for="nameCat" style="color: red" />
                     </div>
                     <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{categoriesController.saveCategory()}"/>
                 </h:form>
