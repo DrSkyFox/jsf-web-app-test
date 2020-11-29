@@ -44,11 +44,11 @@ public class ProductController implements Serializable {
     }
 
 
-    public void deleteCategory(Product product) throws SQLException {
+    public void deleteProduct(Product product) throws SQLException {
         productDAO.delete(product);
     }
 
-    public String saveCategory() throws SQLException {
+    public String saveProduct() throws SQLException {
         if(product.getId() == null) {
             productDAO.save(product);
         } else {
@@ -57,7 +57,7 @@ public class ProductController implements Serializable {
         return "/products.xhtml?faces-redirect=true";
     }
 
-    public String createCategory() {
+    public String createProduct() {
         this.product = new Product();
         return "/product.xhtml?faces-redirect=true";
     }

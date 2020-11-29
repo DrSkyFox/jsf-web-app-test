@@ -5,13 +5,13 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:include src="head.xhtml">
-    <ui:param name="title" value="Category Edit"/>
+    <ui:param name="title" value="Product Edit"/>
 </ui:include>
 
 <h:body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="categories.xhtml">Category</a>
+        <a class="navbar-brand" href="categories.xhtml">Product</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,18 +31,39 @@
         <div class="row py-2">
             <div class="col-12">
                 <h:form>
-                    <h:inputHidden id = "id" value="#{categoriesController.category.id}" />
-<!--                    <input type="hidden" value="id" id = "id" />-->
                     <div class="form-group">
-<!--                        <label>Name Category</label>-->
-                        <h:outputLabel value="Named"/>
-                        <h:inputText styleClass="form-control" id="nameCat"
-                                     value="#{categoriesController.category.nameCat}"
-                                     placeholder="Enter description">
-<!--                            <f:validateRequired />-->
+                    <label>ID Product</label>
+                    <h:outputLabel value="id"/>
+                    <h:outputText styleClass="form-control" id="id"
+                                  value="#{productController.product.id}" >
+                    </h:outputText>
+                    <!--                    <input type="hidden" value="id" id = "id" />-->
+                    <div class="form-group">
+                    <label>Name</label>
+                    <h:outputLabel value="name"/>
+                    <h:inputText styleClass="form-control" id="name"
+                                 value="#{productController.product.name}"
+                                 placeholder="Enter name">
+                        <f:validateRequired />
+                    </h:inputText>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <h:outputLabel value="price"/>
+                        <h:inputText styleClass="form-control" id="price"
+                                     value="#{productController.product.price}"
+                                     placeholder="Enter price">
+                            <f:validateRequired />
                         </h:inputText>
                     </div>
-                    <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{categoriesController.saveCategory()}"/>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <h:outputLabel value="desciption"/>
+                        <h:inputText styleClass="form-control" id="description"
+                                     value="#{productController.product.description}"
+                                     placeholder="Enter price">
+                        </h:inputText>
+                    </div>
+                    <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{orderController.saveOrder()}"/>
                 </h:form>
             </div>
         </div>

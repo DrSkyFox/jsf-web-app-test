@@ -11,7 +11,7 @@
 <h:body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="categories.xhtml">Category</a>
+        <a class="navbar-brand" href="orders.xhtml">Orders</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,18 +31,30 @@
         <div class="row py-2">
             <div class="col-12">
                 <h:form>
-                    <h:inputHidden id = "id" value="#{categoriesController.category.id}" />
+                    <div class="form-group">
+                    <label>ID Order</label>
+                    <h:outputLabel value="id"/>
+                    <h:outputText styleClass="form-control" id="id"
+                                 value="#{orderController.order.id}" >
+                    </h:outputText>
 <!--                    <input type="hidden" value="id" id = "id" />-->
                     <div class="form-group">
-                        <label>Name Category</label>
-                        <h:outputLabel value="Named"/>
-                        <h:inputText styleClass="form-control" id="nameCat"
-                                     value="#{categoriesController.category.nameCat}"
-                                     placeholder="Enter description">
+                        <label>Cutromer</label>
+                        <h:outputLabel value="customerID"/>
+                        <h:inputText styleClass="form-control" id="customerID"
+                                     value="#{orderController.order.customerID}"
+                                     placeholder="Enter customer ID">
                             <f:validateRequired />
                         </h:inputText>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <h:outputLabel value="description"/>
+                        <h:inputText styleClass="form-control" id="description"
+                                     value="#{orderController.order.description}"
+                                     placeholder="Enter description">
+                        </h:inputText>
                     </div>
-                    <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{categoriesController.saveCategory()}"/>
+                    <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{orderController.saveOrder()}"/>
                 </h:form>
             </div>
         </div>

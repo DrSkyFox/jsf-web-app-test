@@ -44,11 +44,11 @@ public class OrderController implements Serializable {
     }
 
 
-    public void deleteCategory(Order order) throws SQLException {
+    public void deleteOrder(Order order) throws SQLException {
         orderDAO.delete(order);
     }
 
-    public String saveCategory() throws SQLException {
+    public String saveOrder() throws SQLException {
         if(order.getId() == null) {
             orderDAO.save(order);
         } else {
@@ -57,7 +57,7 @@ public class OrderController implements Serializable {
         return "/orders.xhtml?faces-redirect=true";
     }
 
-    public String createCategory() {
+    public String createOrder() {
         this.order = new Order();
         return "/order.xhtml?faces-redirect=true";
     }

@@ -5,13 +5,13 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:include src="head.xhtml">
-    <ui:param name="title" value="Categories List"/>
+    <ui:param name="title" value="Orders List"/>
 </ui:include>
 
 <h:body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Categories</a>
+        <a class="navbar-brand" href="#">Orders</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,36 +29,40 @@
 
     <div class="container">
         <div class="row py-2">
-            <h:form id="categoriesForm">
+            <h:form id="ordersForm">
                 <div class="col-12">
-                    <h:commandButton value="Add Category" styleClass="btn btn-primary"
-                                     action="#{categoriesController.createCategory}"/>
+                    <h:commandButton value="Add Order" styleClass="btn btn-primary"
+                                     action="#{orderController.createOrder()}"/>
                 </div>
 
                 <div class="col-12">
 
-                    <h:dataTable value="#{categoriesController.all}" var="category"
+                    <h:dataTable value="#{orderController.all}" var="order"
                                  styleClass="table table-bordered my-2">
                         <h:column>
                             <f:facet name="header">Id</f:facet>
-                            #{category.id}
+                            #{order.id}
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Name Category</f:facet>
-                            #{category.nameCat}
+                            <f:facet name="header">Description</f:facet>
+                            #{order.description}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Customer ID</f:facet>
+                            #{order.customerID}
                         </h:column>
                         <h:column>
                             <f:facet name="header">isEnabled</f:facet>
-                            #{category.status}
+                            #{order.status}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Action</f:facet>
 
                             <h:commandButton value="Edit" styleClass="btn btn-success"
-                                             action="#{categoriesController.editCategory(category)}"/>
+                                             action="#{orderController.editOrder(order)}"/>
                             <h:commandButton value="Delete" styleClass="btn btn-danger"
-                                             action="#{categoriesController.deleteCategory(category)}">
-                                <f:ajax event="click" render="categoriesForm"/>
+                                             action="#{orderController.deleteOrder(order)}">
+                                <f:ajax event="click" render="ordersForm"/>
                             </h:commandButton>
 
                         </h:column>
