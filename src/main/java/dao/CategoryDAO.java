@@ -7,6 +7,7 @@ import persists.Categories;
 
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,8 +20,8 @@ import java.util.List;
 public class CategoryDAO implements Dao<Categories>{
 
     Logger logger  = LoggerFactory.getLogger(CategoryDAO.class);
-
-    @PersistenceContext(unitName = "DS")
+    @Produces
+    @PersistenceContext(unitName = "ds")
     private EntityManager entityManager;
 
 
