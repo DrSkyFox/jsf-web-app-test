@@ -25,27 +25,27 @@
 
                 <div class="col-12">
 
-                    <h:dataTable value="#{categoriesController.all}" var="category"
+                    <h:dataTable value="#{categoriesController.all}" var="categories"
                                  styleClass="table table-bordered my-2">
                         <h:column>
                             <f:facet name="header">Id</f:facet>
-                            #{category.id}
+                            #{categories.id}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Name Category</f:facet>
-                            #{category.nameCat}
+                            #{categories.nameCat}
                         </h:column>
                         <h:column>
                             <f:facet name="header">isEnabled</f:facet>
-                            #{category.status}
+                            #{categories.status}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Action</f:facet>
 
                             <h:commandButton value="Edit" styleClass="btn btn-success"
-                                             action="#{categoriesController.editCategory(category)}"/>
+                                             action="#{categoriesController.editCategory(categories)}"/>
                             <h:commandButton value="Delete" styleClass="btn btn-danger"
-                                             action="#{categoriesController.deleteCategory(category)}">
+                                             action="#{categoriesController.deleteCategory(categories)}">
                                 <f:ajax event="click" render="categoriesForm"/>
                             </h:commandButton>
 

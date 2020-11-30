@@ -16,11 +16,11 @@
         <div class="row py-2">
             <div class="col-12">
                 <h:form>
-                    <h:inputHidden id = "id" value="#{categoriesController.category.id}" />
+                    <h:inputHidden id = "id" value="#{categoriesController.categories.id}" />
                     <div class="form-group">
                         <h:outputLabel value="Named"/>
                         <h:inputText styleClass="form-control" id="nameCat"
-                                     value="#{categoriesController.category.nameCat}"
+                                     value="#{categoriesController.categories.nameCat}"
                                      placeholder="Enter description" validatorMessage="Fields must not empty">
                             <f:validateRequired />
                         </h:inputText>

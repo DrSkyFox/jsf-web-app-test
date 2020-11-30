@@ -23,31 +23,31 @@
 
                 <div class="col-12">
 
-                    <h:dataTable value="#{productController.all}" var="product"
+                    <h:dataTable value="#{productController.all}" var="products"
                                  styleClass="table table-bordered my-2">
                         <h:column>
                             <f:facet name="header">Id</f:facet>
-                            #{product.id}
+                            #{products.id}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Name Product</f:facet>
-                            #{product.name}
+                            #{products.name}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Price</f:facet>
-                            #{product.price}
+                            #{products.price}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Description</f:facet>
-                            #{product.description}
+                            #{products.description}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Action</f:facet>
 
                             <h:commandButton value="Edit" styleClass="btn btn-success"
-                                             action="#{productController.editProduct(product)}"/>
+                                             action="#{productController.editProduct(products)}"/>
                             <h:commandButton value="Delete" styleClass="btn btn-danger"
-                                             action="#{productController.deleteProduct(product)}">
+                                             action="#{productController.deleteProduct(products)}">
                                 <f:ajax event="click" render="productsForm"/>
                             </h:commandButton>
 

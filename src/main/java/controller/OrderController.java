@@ -1,8 +1,7 @@
 package controller;
 
 import dao.OrderDAO;
-import persists.Category;
-import persists.Order;
+import persists.Orders;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -19,46 +18,46 @@ public class OrderController implements Serializable {
     @Inject
     private OrderDAO orderDAO;
 
-    private Order order;
+    private Orders orders;
 
-    public List<Order> getAll() throws SQLException {
+    public List<Orders> getAll() throws SQLException {
         return orderDAO.getAll();
     }
 
-    public Order getOrder() {
-        return order;
+    public Orders getOrder() {
+        return orders;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrder(Orders orders) {
+        this.orders = orders;
     }
 
 
-    public Order findById(int id) throws SQLException {
+    public Orders findById(int id) throws SQLException {
         return orderDAO.get(id);
     }
 
-    public String editOrder(Order order) {
-        this.order = order;
+    public String editOrder(Orders orders) {
+        this.orders = orders;
         return "/order.xhtml?faces-redirect=true";
     }
 
 
-    public void deleteOrder(Order order) throws SQLException {
-        orderDAO.delete(order);
+    public void deleteOrder(Orders orders) throws SQLException {
+        orderDAO.delete(orders);
     }
 
     public String saveOrder() throws SQLException {
-        if(order.getId() == null) {
-            orderDAO.save(order);
+        if(orders.getId() == null) {
+            orderDAO.save(orders);
         } else {
-            orderDAO.update(order);
+            orderDAO.update(orders);
         }
         return "/orders.xhtml?faces-redirect=true";
     }
 
     public String createOrder() {
-        this.order = new Order();
+        this.orders = new Orders();
         return "/order.xhtml?faces-redirect=true";
     }
 

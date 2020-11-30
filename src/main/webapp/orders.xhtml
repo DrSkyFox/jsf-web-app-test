@@ -23,31 +23,31 @@
 
                 <div class="col-12">
 
-                    <h:dataTable value="#{orderController.all}" var="order"
+                    <h:dataTable value="#{orderController.all}" var="orders"
                                  styleClass="table table-bordered my-2">
                         <h:column>
                             <f:facet name="header">Id</f:facet>
-                            #{order.id}
+                            #{orders.id}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Description</f:facet>
-                            #{order.description}
+                            #{orders.description}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Customer ID</f:facet>
-                            #{order.customerID}
+                            #{orders.customerID}
                         </h:column>
                         <h:column>
                             <f:facet name="header">isEnabled</f:facet>
-                            #{order.status}
+                            #{orders.status}
                         </h:column>
                         <h:column>
                             <f:facet name="header">Action</f:facet>
 
                             <h:commandButton value="Edit" styleClass="btn btn-success"
-                                             action="#{orderController.editOrder(order)}"/>
+                                             action="#{orderController.editOrder(orders)}"/>
                             <h:commandButton value="Delete" styleClass="btn btn-danger"
-                                             action="#{orderController.deleteOrder(order)}">
+                                             action="#{orderController.deleteOrder(orders)}">
                                 <f:ajax event="click" render="ordersForm"/>
                             </h:commandButton>
 

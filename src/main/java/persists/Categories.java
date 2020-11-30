@@ -1,28 +1,33 @@
 package persists;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name = "categories")
+public class Categories {
 
-public class Category {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
 
-    @NotNull(message = "Field cant empty")
-    @Size(min = 3, max = 32, message = "Fileds wolrd must in 3 to 32 symbols")
+    @NotEmpty
+    @Column(nullable = false)
     private String nameCat;
 
-
+    @Column(name = "enabled", columnDefinition = "1")
     private Boolean status;
 
-    public Category(Integer id, String nameCat, Boolean status) {
+    public Categories(Integer id, String nameCat, Boolean status) {
         this.id = id;
         this.nameCat = nameCat;
         this.status = status;
     }
 
-    public Category() {
+    public Categories() {
     }
 
     public Integer getId() {

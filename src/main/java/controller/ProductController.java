@@ -3,7 +3,7 @@ package controller;
 
 import dao.ProductDAO;
 
-import persists.Product;
+import persists.Products;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -20,45 +20,45 @@ public class ProductController implements Serializable {
     @Inject
     private ProductDAO productDAO;
 
-    private Product product;
+    private Products products;
 
-    public List<Product> getAll() throws SQLException {
+    public List<Products> getAll() throws SQLException {
         return productDAO.getAll();
     }
 
-    public Product getProduct() {
-        return product;
+    public Products getProduct() {
+        return products;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProduct(Products products) {
+        this.products = products;
     }
 
-    public Product findById(int id) throws SQLException {
+    public Products findById(int id) throws SQLException {
         return productDAO.get(id);
     }
 
-    public String editProduct(Product product) {
-        this.product = product;
+    public String editProduct(Products products) {
+        this.products = products;
         return "/product.xhtml?faces-redirect=true";
     }
 
 
-    public void deleteProduct(Product product) throws SQLException {
-        productDAO.delete(product);
+    public void deleteProduct(Products products) throws SQLException {
+        productDAO.delete(products);
     }
 
     public String saveProduct() throws SQLException {
-        if(product.getId() == null) {
-            productDAO.save(product);
+        if(products.getId() == null) {
+            productDAO.save(products);
         } else {
-            productDAO.update(product);
+            productDAO.update(products);
         }
         return "/products.xhtml?faces-redirect=true";
     }
 
     public String createProduct() {
-        this.product = new Product();
+        this.products = new Products();
         return "/product.xhtml?faces-redirect=true";
     }
 

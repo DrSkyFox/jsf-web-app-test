@@ -19,14 +19,14 @@
                     <div class="form-group">
                     <h:outputLabel value="id"/>
                     <h:outputText styleClass="form-control" id="id"
-                                  value="#{productController.product.id != null ? productController.product.id : ''}" >
+                                  value="#{productController.products.id != null ? productController.products.id : ''}" >
                     </h:outputText>
                     </div>
                     <!--                    <input type="hidden" value="id" id = "id" />-->
                     <div class="form-group">
                     <h:outputLabel value="name"/>
                     <h:inputText styleClass="form-control" id="name"
-                                 value="#{productController.product.name}"
+                                 value="#{productController.products.name}"
                                  placeholder="Enter name" validatorMessage="Name must not empty">
                         <f:validateRequired />
                     </h:inputText>
@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <h:outputLabel value="price"/>
                         <h:inputText styleClass="form-control" id="price"
-                                     value="#{productController.product.price}"
+                                     value="#{productController.products.price}"
                                      placeholder="Enter price" validatorMessage="price must not empty">
                             <f:validateRequired />
                         </h:inputText>
@@ -45,7 +45,7 @@
                     <div class="form-group">
                         <h:outputLabel value="desciption"/>
                         <h:inputText styleClass="form-control" id="description"
-                                     value="#{productController.product.description}"
+                                     value="#{productController.products.description}"
                                      placeholder="Enter price">
                         </h:inputText>
                     </div>
