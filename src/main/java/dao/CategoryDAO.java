@@ -21,7 +21,7 @@ public class CategoryDAO implements Dao<Categories>{
 
     Logger logger  = LoggerFactory.getLogger(CategoryDAO.class);
     @Produces
-    @PersistenceContext(unitName = "ds")
+    @PersistenceContext(unitName = "DS")
     private EntityManager entityManager;
 
 

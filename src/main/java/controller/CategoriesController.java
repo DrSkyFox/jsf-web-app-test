@@ -27,8 +27,12 @@ public class CategoriesController implements Serializable {
         this.lCategories = categoryDAO.getAll();
     }
 
+//    public List<Categories> getAllCategories() {
+//        return lCategories;
+//    }
+
     public List<Categories> getAllCategories() {
-        return lCategories;
+        return categoryDAO.getAll();
     }
 
 
