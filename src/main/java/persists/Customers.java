@@ -21,7 +21,6 @@ public class Customers {
     @Column(name = "status", nullable = false)
     private Boolean status;
 
-
     public Integer getId() {
         return id;
     }
@@ -38,14 +37,6 @@ public class Customers {
         this.name = name;
     }
 
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
-
     public Integer getFolio() {
         return folio;
     }
@@ -54,11 +45,20 @@ public class Customers {
         this.folio = folio;
     }
 
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Customers{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", folio=" + folio +
                 ", status=" + status +
                 '}';
     }

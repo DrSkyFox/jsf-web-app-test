@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Named
@@ -19,6 +20,9 @@ public class CustomersDAO{
     @PersistenceContext(unitName = "DS")
     private EntityManager entityManager;
 
+
+
+    @Transactional
     public List<Customers> getCustomers() {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Customers> query = cb.createQuery(Customers.class);
