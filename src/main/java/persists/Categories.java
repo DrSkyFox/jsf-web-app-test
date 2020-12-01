@@ -11,14 +11,15 @@ public class Categories {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
 
     @NotEmpty
-    @Column(nullable = false)
+    @Column(name = "nameCategory", nullable = false)
     private String nameCat;
 
-    @Column(name = "enabled", columnDefinition = "1")
+    @Column(name = "enabled", nullable = false, columnDefinition = "tinyint DEFAULT 1")
     private Boolean status;
 
     public Categories(Integer id, String nameCat, Boolean status) {
@@ -52,5 +53,14 @@ public class Categories {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Categories{" +
+                "id=" + id +
+                ", nameCat='" + nameCat + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

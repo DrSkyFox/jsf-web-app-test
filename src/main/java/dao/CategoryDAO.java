@@ -20,7 +20,7 @@ import java.util.List;
 public class CategoryDAO implements Dao<Categories>{
 
     Logger logger  = LoggerFactory.getLogger(CategoryDAO.class);
-    @Produces
+
     @PersistenceContext(unitName = "DS")
     private EntityManager entityManager;
 
@@ -35,13 +35,14 @@ public class CategoryDAO implements Dao<Categories>{
     @Override
     @Transactional
     public List<Categories> getAll() {
-        return entityManager.createQuery("from Categories c", Categories.class)
+        return entityManager.createQuery("from Categories c where c.status=true", Categories.class)
                 .getResultList();
     }
 
     @Override
     @Transactional
     public void save(Categories categories){
+        categories.setStatus(true);
         entityManager.persist(categories);
     }
 
@@ -54,7 +55,7 @@ public class CategoryDAO implements Dao<Categories>{
     @Override
     @Transactional
     public void delete(Categories categories) {
-        entityManager.remove(categories);
+        entityManager.merge(categories);
     }
 
 

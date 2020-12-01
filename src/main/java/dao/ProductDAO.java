@@ -11,6 +11,7 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.servlet.ServletContext;
+import javax.transaction.Transactional;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,27 +33,33 @@ public class ProductDAO implements Dao<Products> {
 
 
     @Override
+    @Transactional
     public Products get(int id) throws SQLException {
         return entityManager.find(Products.class, id);
     }
 
     @Override
+    @Transactional
     public List<Products> getAll() throws SQLException {
-        return entityManager.createQuery("from Products", Products.class).getResultList();
+        return entityManager.createQuery("from Products p where p.status = true", Products.class).getResultList();
     }
 
     @Override
+    @Transactional
     public void save(Products products) throws SQLException {
+        products.setStatus(true);
         entityManager.persist(products);
     }
 
     @Override
+    @Transactional
     public void update(Products products) throws SQLException {
         entityManager.merge(products);
     }
 
     @Override
+    @Transactional
     public void delete(Products products) throws SQLException {
-        entityManager.remove(products);
+        entityManager.merge(products);
     }
 }

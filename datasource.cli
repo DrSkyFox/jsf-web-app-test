@@ -4,7 +4,7 @@ data-source add \
    --name=MySQLDS \
    --connection-url=jdbc:mysql://localhost:3306/java_ee_test?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC \
    --driver-name=mysql \
-   --user-name=root \
+   --user-name=fox \
    --password=root
 
 # 2. restarting Wildfly server

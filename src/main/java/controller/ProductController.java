@@ -45,6 +45,7 @@ public class ProductController implements Serializable {
 
 
     public void deleteProduct(Products products) throws SQLException {
+        products.setStatus(false);
         productDAO.delete(products);
     }
 

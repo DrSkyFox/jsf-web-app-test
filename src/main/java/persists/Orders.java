@@ -20,7 +20,7 @@ public class Orders {
     @Column(name = "customer_id", nullable = false)
     private Integer customerID;
 
-    @Column(name = "enabled", columnDefinition = "1")
+    @Column(name = "enabled",nullable = false, columnDefinition = "tinyint DEFAULT 1")
     private Boolean status;
 
     public Orders(int id, String name, int customerID, boolean status) {

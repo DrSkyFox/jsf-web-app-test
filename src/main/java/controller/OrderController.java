@@ -44,6 +44,7 @@ public class OrderController implements Serializable {
 
 
     public void deleteOrder(Orders orders) throws SQLException {
+        orders.setStatus(false);
         orderDAO.delete(orders);
     }
 

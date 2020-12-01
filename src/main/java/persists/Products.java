@@ -1,7 +1,6 @@
 package persists;
 
 
-import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -21,14 +20,13 @@ public class Products {
     private String name;
 
     @NotNull
-    @Range(min = 0)
     @Column(name = "price", nullable = false)
     private Float price;
 
     @Column(name = "description")
     private String description;
 
-    @Column(name = "enabled", columnDefinition = "1")
+    @Column(name = "enabled",nullable = false, columnDefinition = "tinyint DEFAULT 1")
     private Boolean status;
 
 
@@ -74,5 +72,13 @@ public class Products {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

@@ -21,15 +21,15 @@ public class CategoriesController implements Serializable {
 
     private Categories categories;
 
-    private List<Categories> lCategories;
+//    private List<Categories> lCategories;
 
-    public void preLoadData(ComponentSystemEvent componentSystemEvent) {
-        this.lCategories = categoryDAO.getAll();
-    }
-
-//    public List<Categories> getAllCategories() {
-//        return lCategories;
+//    public void preLoadData(ComponentSystemEvent componentSystemEvent) {
+//        this.lCategories = categoryDAO.getAll();
 //    }
+//
+////    public List<Categories> getAllCategories() {
+////        return lCategories;
+////    }
 
     public List<Categories> getAllCategories() {
         return categoryDAO.getAll();
@@ -55,6 +55,7 @@ public class CategoriesController implements Serializable {
 
 
     public void deleteCategory(Categories categories) throws SQLException {
+        categories.setStatus(false);
         categoryDAO.delete(categories);
     }
 

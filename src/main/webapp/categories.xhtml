@@ -13,8 +13,6 @@
     <ui:include src="navbar.xhtml"></ui:include>
 
 
-<!--    <f:event listener="#{categoriesController.preLoadData}" type="preRenderView"/>-->
-
     <div class="container">
         <div class="row py-2">
             <h:form id="categoriesForm">
@@ -25,7 +23,7 @@
 
                 <div class="col-12">
 
-                    <h:dataTable value="#{categoriesController.getAllCategories}" var="categories"
+                    <h:dataTable value="#{categoriesController.allCategories}" var="categories"
                                  styleClass="table table-bordered my-2">
                         <h:column>
                             <f:facet name="header">Id</f:facet>
