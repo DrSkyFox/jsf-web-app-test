@@ -2,4 +2,4 @@
 /out
 /.idea
 *.iml
-ToDoRepositoryFuture.java
+*.cli

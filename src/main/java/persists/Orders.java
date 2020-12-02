@@ -1,20 +1,36 @@
 package persists;
 
-public class Order {
+import javax.persistence.*;
 
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "orders")
+public class Orders {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "description")
     private String description;
+
+    @NotNull
+    @Column(name = "customer_id", nullable = false)
     private Integer customerID;
+
+    @Column(name = "enabled",nullable = false, columnDefinition = "tinyint DEFAULT 1")
     private Boolean status;
 
-    public Order(int id, String name, int customerID, boolean status) {
+    public Orders(int id, String name, int customerID, boolean status) {
         this.id = id;
         this.description = name;
         this.customerID = customerID;
         this.status = status;
     }
 
-    public Order() {
+    public Orders() {
     }
 
     public Integer getId() {

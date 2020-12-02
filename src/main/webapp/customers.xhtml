@@ -5,49 +5,52 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:include src="head.xhtml">
-    <ui:param name="title" value="Categories List"/>
+    <ui:param name="title" value="Customers List"/>
 </ui:include>
 
 <h:body>
 
-    <ui:include src="navbar.xhtml"></ui:include>
 
+    <ui:include src="navbar.xhtml"></ui:include>
 
     <div class="container">
         <div class="row py-2">
-            <h:form id="categoriesForm">
-                <div class="col-12">
-                    <h:commandButton value="Add Category" styleClass="btn btn-primary"
-                                     action="#{categoriesController.createCategory}"/>
-                </div>
+            <h:form id="CustomersForm">
+<!--                <div class="col-12">-->
+<!--                    <h:commandButton value="Add Order" styleClass="btn btn-primary"-->
+<!--                                     action="#{orderController.createOrder()}"/>-->
+<!--                </div>-->
 
                 <div class="col-12">
 
-                    <h:dataTable value="#{categoriesController.allCategories}" var="categories"
+                    <h:dataTable value="#{customersController.customersList}" var="cutomers"
                                  styleClass="table table-bordered my-2">
                         <h:column>
                             <f:facet name="header">Id</f:facet>
-                            #{categories.id}
+                            #{cutomers.id}
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Name Category</f:facet>
-                            #{categories.nameCat}
+                            <f:facet name="header">Name</f:facet>
+                            #{cutomers.name}
                         </h:column>
                         <h:column>
-                            <f:facet name="header">isEnabled</f:facet>
-                            #{categories.status}
+                            <f:facet name="header">Folio</f:facet>
+                            #{cutomers.folio}
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Action</f:facet>
+                            <f:facet name="header">Status</f:facet>
+                            #{cutomers.status}
+                        </h:column>
+<!--                        <h:column>-->
+<!--                            <f:facet name="header">Action</f:facet>-->
 
-                            <h:commandButton value="Edit" styleClass="btn btn-success"
-                                             action="#{categoriesController.editCategory(categories)}"/>
-                            <h:commandButton value="Delete" styleClass="btn btn-danger"
-                                             action="#{categoriesController.deleteCategory(categories)}">
-                                <f:ajax event="click" render="categoriesForm"/>
-                            </h:commandButton>
-
-                        </h:column>
+<!--                            <h:commandButton value="Edit" styleClass="btn btn-success"-->
+<!--                                             action="#{orderController.editOrder(orders)}"/>-->
+<!--                            <h:commandButton value="Delete" styleClass="btn btn-danger"-->
+<!--                                             action="#{orderController.deleteOrder(orders)}">-->
+<!--                                <f:ajax event="click" render="ordersForm"/>-->
+<!--                            </h:commandButton>-->
+<!--                        </h:column>-->
                     </h:dataTable>
                 </div>
             </h:form>

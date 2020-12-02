@@ -1,9 +1,10 @@
 package controller;
 
 import dao.CategoryDAO;
-import persists.Category;
+import persists.Categories;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ComponentSystemEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -18,45 +19,57 @@ public class CategoriesController implements Serializable {
     @Inject
     private CategoryDAO categoryDAO;
 
-    private Category category;
+    private Categories categories;
 
-    public List<Category> getAll() throws SQLException {
+//    private List<Categories> lCategories;
+
+//    public void preLoadData(ComponentSystemEvent componentSystemEvent) {
+//        this.lCategories = categoryDAO.getAll();
+//    }
+//
+////    public List<Categories> getAllCategories() {
+////        return lCategories;
+////    }
+
+    public List<Categories> getAllCategories() {
         return categoryDAO.getAll();
     }
 
-    public Category getCategory() {
-        return category;
+
+    public Categories getCategory() {
+        return categories;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategory(Categories categories) {
+        this.categories = categories;
     }
 
-    public Category findById(int id) throws SQLException {
+    public Categories findById(int id) throws SQLException {
         return categoryDAO.get(id);
     }
 
-    public String editCategory(Category category) {
-        this.category = category;
+    public String editCategory(Categories categories) {
+        this.categories = categories;
         return "/category.xhtml?faces-redirect=true";
     }
 
 
-    public void deleteCategory(Category category) throws SQLException {
-        categoryDAO.delete(category);
+    public void deleteCategory(Categories categories) throws SQLException {
+        categories.setStatus(false);
+        categoryDAO.delete(categories);
     }
 
     public String saveCategory() throws SQLException {
-        if(category.getId() == null) {
-            categoryDAO.save(category);
+        if(categories.getId() == null) {
+            categoryDAO.save(categories);
         } else {
-            categoryDAO.update(category);
+            categoryDAO.update(categories);
         }
         return "/categories.xhtml?faces-redirect=true";
     }
 
     public String createCategory() {
-        this.category = new Category();
+        this.categories = new Categories();
         return "/category.xhtml?faces-redirect=true";
     }
 
